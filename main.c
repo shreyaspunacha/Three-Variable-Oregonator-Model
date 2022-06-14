@@ -8,11 +8,11 @@ int main(int argc,char *argv[])
 	int nx = 300;
 	int ny = 300; 
 	int nt = 20000;
-	int PhaseField_nt = 50000; // Increase this.
+	int PhaseField_nt = 50000; // Increase this while doing the simulations.
 	int Circle_x = 150;
 	int Circle_y = 150;
 	int ObstacleRadius = 10;
-	int PulseStartTime = 0 ; // The count starts from zero not starttime. 
+	int PulseStartTime = 0 ; // The time at which the electric field must be started. The count starts from zero not starttime. 
 	int PulseInterval = 30000;
 	int savingInterval = 500;
 	int startTime = 0; //atoi(argv[2]);
@@ -42,14 +42,41 @@ int main(int argc,char *argv[])
 //    	double T = atoi(argv[2]);
 
 	/* Modify the code so that not to run the first two functions below, if the relevent files already exists */
+	FILE *file = fopen("Phi_Equilibrium.txt", "r");
+	if (file)
+	{
+		printf("Phase Field Equilibrium File Already Exists\n");
+		printf("Integrating Oregonator Equations\n");
 
-	PhaseField_InitialCondition(nx, ny, Circle_x, Circle_y, ObstacleRadius);
-	PhaseFieldTimeEvolution(nx, ny, nt, dx, dy, dt, zi, Circle_x, Circle_y, ObstacleRadius);
-	OregonatorTimeEvolution(nx, ny, dx, dy, dt, 
+		OregonatorTimeEvolution(nx, ny, dx, dy, dt, 
 			nt, f, q, epsilon, epsilonDash, Circle_x, 
 			Circle_y, ObstacleRadius, E, 
 			PulseInterval,
 			savingInterval, startTime, Mu, Mv, Mw, PulseStartTime);
+
+		fclose(file);
+
+	}
+	else
+	{
+		printf("Phase Field Equilibrium does not exist\n");
+		printf("Computing Phase Filed Equilibrium\n");
+
+		PhaseField_InitialCondition(nx, ny, Circle_x, Circle_y, ObstacleRadius);
+		PhaseFieldTimeEvolution(nx, ny, nt, dx, dy, dt, zi, Circle_x, Circle_y, ObstacleRadius);
+
+
+		printf("Integrating Oregonator Equations\n");
+		OregonatorTimeEvolution(nx, ny, dx, dy, dt, 
+			nt, f, q, epsilon, epsilonDash, Circle_x, 
+			Circle_y, ObstacleRadius, E, 
+			PulseInterval,
+			savingInterval, startTime, Mu, Mv, Mw, PulseStartTime);
+			
+	}
+		
+		
+
 	
 	return(0);
 
