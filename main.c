@@ -34,9 +34,9 @@ int main(int argc,char *argv[])
 	double f = 1.4;
 	double epsilon = 0.01;
 	double epsilonDash = 0.0001;
-	double E = 1.0; //atof(argv[1]); 
+	double E = 0.0; //atof(argv[1]); 
 // 	double Ey = 0.0;
-	double Mu = 1.0; 
+	double Mu = 0.0; // Setting the value of the drift term of u to zero as advised by the referee of JPC.  
 	double Mv = -2.0; 
 	double Mw = -2.0; // CHANGE THIS VALUE ACCORDING TO THE PAPER 
 //    	double T = atoi(argv[2]);
