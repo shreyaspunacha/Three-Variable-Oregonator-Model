@@ -22,6 +22,14 @@ int main(int argc,char *argv[])
 	double dt = 0.0001; //1./400.;
 	double PhaseField_dt = 0.0001; //1./400.;
 	double zi = 0.4;
+
+	/*****************************************************************************************************
+	 *
+	 * The parameters are taken from the paper "Forced parallel drift of spiral waves in the 
+	 * Belousov-Zhabotinsky reaction" by Bernd Schmidt and Stefan C. Mu ̈ller, PRE (1997)
+	 *
+	*****************************************************************************************************/
+
 	double q = 0.002; 
 	double f = 1.4;
 	double epsilon = 0.01;
