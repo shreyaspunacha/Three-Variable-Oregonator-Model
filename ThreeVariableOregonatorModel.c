@@ -192,14 +192,36 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 	
 		/* Load Initial Conditions */
 
-		for(int i=200;i<=220;i++)
+		/* Target Wave Initial Conditions */
+
+		// for(int i=200;i<=220;i++)
+		// {
+		// 	// printf("i = %d\n",i);
+		// 	for(int j=200;j<=220;j++)
+		// 	{
+		// 		ubackup[i][j] = 0.9;
+		// 	}
+		// }
+
+		/* Spiral Initial Conditons */
+
+		for(int i=150;i<=nx;i++)
 		{
 			// printf("i = %d\n",i);
-			for(int j=200;j<=220;j++)
+			for(int j=0;j<=ny;j++)
 			{
 				ubackup[i][j] = 0.9;
 			}
 		}
+
+		for(int i=0;i<=300;i++)
+		{
+			for(int j=150;j<=ny;j++)
+			{
+				vbackup[i][j] = 0.05;
+			}
+		}
+		
 
 		// for(int i=0;i<=((nx/2)-1);i++)
 		// {
