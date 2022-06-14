@@ -18,12 +18,12 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
     
 
     	double pi = 3.14159265359;
-	printf("c1 = %lf\n",c1);
-	printf("c2 = %lf\n",c2);
-	printf("c3 = %lf\n",c3);
-	printf("c4 = %lf\n",c4);
-	printf("c5 = %lf\n",c5);
-	printf("c6 = %lf\n",c6);
+	// printf("c1 = %lf\n",c1);
+	// printf("c2 = %lf\n",c2);
+	// printf("c3 = %lf\n",c3);
+	// printf("c4 = %lf\n",c4);
+	// printf("c5 = %lf\n",c5);
+	// printf("c6 = %lf\n",c6);
 
 	/***************************************************************************************************/	
 
