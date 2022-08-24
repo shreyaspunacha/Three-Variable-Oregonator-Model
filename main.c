@@ -13,7 +13,7 @@ int main(int argc,char *argv[])
 	int Circle_y = 150;			// y coordinate of obstacle center. 
 	int ObstacleRadius = 10;		// Radius of the obstacle.
 	int PulseStartTime = 0; 		// The time at which the electric field must be started. The count starts from zero, not starttime. 
-	int PulseInterval = 100000;     	// The frequency at which pulses are delivered. 
+	int PulseInterval = 100000;     	// PulseStartTime + PulseInterval = Duration of the pulse. 
 	int savingInterval = 100;       	// The figure plotting interval.
 	int startTime = 100000;			// The starttime for the code. if 0, it will run the initial conditions, else it will pickup the files from Data folder 
 	// int startTime = atoi(argv[2]);       // The command in case a shell script is used to run the program.
