@@ -4,8 +4,7 @@
 
 double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, int nt, double f, double q, double epsilon, double epsilonDash, int Circle_x, int Circle_y, int ObstacleRadius, double E, int PulseInterval, int savingInterval, int startTime, double Mu, double Mv, double Mw, int PulseStartTime)
 {
-
-	//double u_th;
+	/* Define the vaiables to be used later */
 	double uReactionTerm;
 	double vReactionTerm;
 	double wReactionTerm;
@@ -18,12 +17,6 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
     
 
     	double pi = 3.14159265359;
-	// printf("c1 = %lf\n",c1);
-	// printf("c2 = %lf\n",c2);
-	// printf("c3 = %lf\n",c3);
-	// printf("c4 = %lf\n",c4);
-	// printf("c5 = %lf\n",c5);
-	// printf("c6 = %lf\n",c6);
 
 	/***************************************************************************************************/	
 
@@ -97,7 +90,8 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 
 	/***************************************************************************************************/	
 	
-	/* Setting the diffusion coefficient value very low inside the obstacle. */
+	/* Setting the diffusion coefficient value very low inside the circle. 
+	 * This creates an obstacle in excitable media. */
 
 	/***************************************************************************************************/	
 
@@ -128,7 +122,10 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 	}
 
 
-	// /* Setting the diffusion coefficient value, Dv very low inside the obstacle. THIS CAUSES ABNORMAL WAVE EMISSION FROM THE OBSTACLE */
+	/* Setting the diffusion coefficient value, Dv very low inside the obstacle. 
+	 * THIS CAUSES ABNORMAL WAVE EMISSION FROM THE OBSTACLE. 
+	 * This section is retained for future reference. Do not make this mistake. 
+	 * */
 
 	 // for(int i=(Circle_x-ObstacleRadius);i<=(Circle_x+ObstacleRadius);i++)
 	 // {
@@ -170,7 +167,11 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 
 	/***************************************************************************************************/	
 
-	/* Spiral initial conditions */
+	/* Target and Spiral initial conditions. 
+	 * Note that this condition may not always give spiral in the medium. 
+	 * In that case, chop-off the portion of the wave to generate the spiral. 
+	 * */
+
 	/* Replacing all the garbage values of the arrays with zeros.  */
 
 	/***************************************************************************************************/	
@@ -222,6 +223,11 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 			}
 		}
 		
+		/***************************************************************************************************/	
+
+		/* Note that we are not giving any initial values for v and w variables. Again, a lesson! */
+
+		/***************************************************************************************************/	
 
 		// for(int i=0;i<=((nx/2)-1);i++)
 		// {
@@ -231,17 +237,12 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 		// 	}
 		// }
 
-		/***************************************************************************************************/	
-
-		/* WE HAVE TO FIGURE OUT THE VALUE FOR W (wbackup) VARIABLE IN THE INITIAL CONDITIONS. */
-
-		/***************************************************************************************************/	
 
 		// for(int i=0;i<=((nx/2)-1);i++) /* May have to change the values of i's and j's here */
 		// {
 		// 	for(int j=0;j<=ny;j++)
 		// 	{
-		// 		wbackup[i][j] = 0.1; /* THIS VALUE NEED TO BE ALTERED? */
+		// 		wbackup[i][j] = 0.1; 
 		// 	}
 		// }
 
@@ -304,7 +305,6 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 
 
 
-	printf("Time loop begins now\n");	
 
 	/***************************************************************************************************/	
 
@@ -315,7 +315,6 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 	for(int t=0;t<=nt;t++)
 	{
 		/* Array Exchange */
-		printf("entering time loop\n");
 
 		for(int i=1;i<=nx;i++)
 		{
