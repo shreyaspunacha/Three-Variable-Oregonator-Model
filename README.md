@@ -21,7 +21,7 @@ $$
 
 The above model equations and the parameters are chosen from the paper titled "Forced parallel drift of spiral waves in the Belousov-Zhabotinsky reaction" by "Bernd Schmidt and Stefan C. Müller" VOLUME 55, NUMBER 4, APRIL 1997, Physical Review E.
 
-# Instructions To Run The Code.
+## Instructions To Run The Code
 
 From the Terminal, navigate to the folder containing the codes and type
 
@@ -29,4 +29,4 @@ From the Terminal, navigate to the folder containing the codes and type
 * ./run
 * python Plot.py
 
-The make file works on Mac and Linux systems. 
+The make file works on Mac and Linux systems.
