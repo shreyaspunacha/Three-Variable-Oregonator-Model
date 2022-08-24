@@ -9,7 +9,12 @@ import matplotlib.pyplot as plt
 # plt.savefig("Phi_0.png")
 # plt.savefig("Phi_Equilibrium.png")
 
-for t in range(0, 20000+500, 500):
+startTime = 100000
+nt = 50000  
+savingInterval = 100
+endTime = startTime + nt + savingInterval 
+
+for t in range(startTime, endTime, savingInterval):
     fname = np.loadtxt("u_%.7d.txt"%t)
     data = fname.reshape(300, 300)
     plt.pcolormesh(data.T, vmin=0, vmax=1, cmap="jet")

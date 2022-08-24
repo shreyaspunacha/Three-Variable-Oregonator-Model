@@ -264,7 +264,7 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 	
 	if (startTime != 0)
 	{
-		//printf("Start time is not zero\n");
+		printf("Start time is not zero\n");
 		FILE *f2, *f3, *f4;
 		double ubuffer;
 		double vbuffer;
@@ -315,6 +315,7 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 	for(int t=0;t<=nt;t++)
 	{
 		/* Array Exchange */
+		printf("entering time loop\n");
 
 		for(int i=1;i<=nx;i++)
 		{

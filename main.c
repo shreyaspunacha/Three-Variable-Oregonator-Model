@@ -12,10 +12,10 @@ int main(int argc,char *argv[])
 	int Circle_x = 150;
 	int Circle_y = 150;
 	int ObstacleRadius = 10;
-	int PulseStartTime = 0 ; // The time at which the electric field must be started. The count starts from zero not starttime. 
+	int PulseStartTime = 0; // The time at which the electric field must be started. The count starts from zero not starttime. 
 	int PulseInterval = 100000;
 	int savingInterval = 100;
-	int startTime = atoi(argv[2]);
+	int startTime = 100000; //atoi(argv[2]);
 
 	double dx = 0.1; //1./6.;
 	double dy = 0.1; //1./6.;
@@ -34,7 +34,7 @@ int main(int argc,char *argv[])
 	double f = 1.4;
 	double epsilon = 0.01;
 	double epsilonDash = 0.0001;
-	double E = atof(argv[1]); 
+	double E = 1.1; //atof(argv[1]); 
 // 	double Ey = 0.0;
 	double Mu = 0; // Setting the value of the drift term of u to zero as advised by the referee of JPC.  
 	double Mv = -2.0; 
