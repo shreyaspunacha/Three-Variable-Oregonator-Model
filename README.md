@@ -29,4 +29,4 @@ From the Terminal, navigate to the folder containing the codes and type
 * ./run
 * python Plot.py
 
-The make file is works on Mac and Linux systems. 
+The make file works on Mac and Linux systems. 
