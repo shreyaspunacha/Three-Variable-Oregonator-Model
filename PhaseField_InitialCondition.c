@@ -17,7 +17,10 @@ double PhaseField_InitialCondition(int nx, int ny, int Circle_x, int Circle_y, i
 	}
 
 	/* Defining a circle with center (Circle_x,Circle_y) and radius "ObstacleRadius"
-	 * and setting the value inside the circle to 0.0 */
+	 * and setting the value inside the circle to very small. This will create 
+	 * an initial condition where the value of Phi is almost zero inside and 
+	 * 1. outside with a discontinuity at the boundary of the obstacle.  
+	 * */
 
 	for(int i=(Circle_x-ObstacleRadius);i<=(Circle_x+ObstacleRadius);i++)
 	{
@@ -32,6 +35,7 @@ double PhaseField_InitialCondition(int nx, int ny, int Circle_x, int Circle_y, i
 	}
 
 	/* Save the phase filed initial conditions into a file */
+
 	f1 = fopen("Phi_0.txt", "w");
 	for(int i=1;i<=nx;i++)
 	{
