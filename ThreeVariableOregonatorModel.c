@@ -205,7 +205,7 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 
 		/* Spiral Initial Conditons */
 
-		for(int i=150;i<=nx;i++)
+		for(int i=200;i<=nx;i++)
 		{
 			// printf("i = %d\n",i);
 			for(int j=0;j<=ny;j++)
@@ -216,7 +216,7 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 
 		for(int i=0;i<=300;i++)
 		{
-			for(int j=150;j<=ny;j++)
+			for(int j=100;j<=ny;j++)
 			{
 				vbackup[i][j] = 0.05;
 			}
@@ -352,7 +352,7 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 		if ( ( t >= PulseStartTime) && (t <= PulseStartTime+PulseInterval) ) /* Apply E field */
 		{
 		
-			printf("t=%d, applying E=%0.1f field\n",t,E);
+			printf("t=%d, applying E=%0.2f field\n",t,E);
 
 			for(int i=1;i<=nx;i++)
 			{
@@ -366,20 +366,20 @@ double OregonatorTimeEvolution(int nx, int ny, double dx, double dy, double dt, 
 								( (Du[i][j]  * c1) * (u[i+1][j] - 2.0*u[i][j] + u[i-1][j]) ) + 
 								( (Du[i][j]  * c2) * (u[i][j+1] - 2.0*u[i][j] + u[i][j-1]) ) + 
 								( (Du[i][j]  * c3) * (Ln_PhiEquilibrium[i+1][j] - Ln_PhiEquilibrium[i-1][j]) * (u[i+1][j] - u[i-1][j]) ) + 
-								( (Du[i][j]  * c4) * (Ln_PhiEquilibrium[i][j+1] - Ln_PhiEquilibrium[i][j-1]) * (u[i][j+1] - u[i][j-1]) ) - 
+								( (Du[i][j]  * c4) * (Ln_PhiEquilibrium[i][j+1] - Ln_PhiEquilibrium[i][j-1]) * (u[i][j+1] - u[i][j-1]) ) + 
 								( (Mu*E*c5) * (u[i+1][j] - u[i-1][j]));// -((Mu*E*c6) * (u[i][j+1] - u[i][j-1]));
 						vbackup[i][j] = v[i][j] +  (dt * vReactionTerm) + 
 							        ( (Dv[i][j] * c1)*(v[i+1][j] - 2.*v[i][j] + v[i-1][j]) ) + 
 								( (Dv[i][j] * c2)*(v[i][j+1] - 2.*v[i][j] + v[i][j-1]) ) + 
 								( (Dv[i][j]  * c3) * (Ln_PhiEquilibrium[i+1][j] - Ln_PhiEquilibrium[i-1][j]) * (v[i+1][j] - v[i-1][j]) ) + 
-								( (Dv[i][j]  * c4) * (Ln_PhiEquilibrium[i][j+1] - Ln_PhiEquilibrium[i][j-1]) * (v[i][j+1] - v[i][j-1]) ) -
+								( (Dv[i][j]  * c4) * (Ln_PhiEquilibrium[i][j+1] - Ln_PhiEquilibrium[i][j-1]) * (v[i][j+1] - v[i][j-1]) ) +
 								( (Mv*E*c5)* (v[i+1][j] - v[i-1][j]));// -( (Mv*E*c6) * (v[i][j+1] - v[i][j-1]));  
 
 						wbackup[i][j] = w[i][j] +  (dt * wReactionTerm) + 
 							        ( (Dw[i][j] * c1)*(w[i+1][j] - 2.*w[i][j] + w[i-1][j]) ) + 
 								( (Dw[i][j] * c2)*(w[i][j+1] - 2.*w[i][j] + w[i][j-1]) ) + 
 								( (Dw[i][j]  * c3) * (Ln_PhiEquilibrium[i+1][j] - Ln_PhiEquilibrium[i-1][j]) * (w[i+1][j] - w[i-1][j]) ) + 
-								( (Dw[i][j]  * c4) * (Ln_PhiEquilibrium[i][j+1] - Ln_PhiEquilibrium[i][j-1]) * (w[i][j+1] - w[i][j-1]) ) -
+								( (Dw[i][j]  * c4) * (Ln_PhiEquilibrium[i][j+1] - Ln_PhiEquilibrium[i][j-1]) * (w[i][j+1] - w[i][j-1]) ) +
 								( (Mw*E*c5)* (w[i+1][j] - w[i-1][j]));// -( (Mw*E*c6) * (w[i][j+1] - w[i][j-1]));  
 				}
 			}
