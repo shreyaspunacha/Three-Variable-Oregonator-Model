@@ -7,15 +7,15 @@ int main(int argc,char *argv[])
 {
 	int nx = 300;
 	int ny = 300; 
-	int nt = 20000;
+	int nt = 50000;
 	int PhaseField_nt = 50000; // Increase this while doing the simulations.
 	int Circle_x = 150;
 	int Circle_y = 150;
 	int ObstacleRadius = 10;
 	int PulseStartTime = 0 ; // The time at which the electric field must be started. The count starts from zero not starttime. 
-	int PulseInterval = 30000;
-	int savingInterval = 500;
-	int startTime = 0; //atoi(argv[2]);
+	int PulseInterval = 100000;
+	int savingInterval = 100;
+	int startTime = atoi(argv[2]);
 
 	double dx = 0.1; //1./6.;
 	double dy = 0.1; //1./6.;
@@ -34,11 +34,11 @@ int main(int argc,char *argv[])
 	double f = 1.4;
 	double epsilon = 0.01;
 	double epsilonDash = 0.0001;
-	double E = 0.0; //atof(argv[1]); 
+	double E = atof(argv[1]); 
 // 	double Ey = 0.0;
-	double Mu = 0.0; // Setting the value of the drift term of u to zero as advised by the referee of JPC.  
+	double Mu = 0; // Setting the value of the drift term of u to zero as advised by the referee of JPC.  
 	double Mv = -2.0; 
-	double Mw = -2.0; // CHANGE THIS VALUE ACCORDING TO THE PAPER 
+	double Mw = 1.0; // CHANGE THIS VALUE ACCORDING TO THE PAPER 
 //    	double T = atoi(argv[2]);
 
 	/* Modify the code so that not to run the first two functions below, if the relevent files already exists */
